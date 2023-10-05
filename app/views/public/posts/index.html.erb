@@ -1,0 +1,24 @@
+<h1>自作PC投稿一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>投稿者名</th>
+    <th>投稿日</th>
+    <th>CPU</th>
+    <th>コメント</th>
+    <th>合計金額</th>
+    <th>詳細</th>
+  </tr>
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.customer.last_name %><%= post.customer.first_name %></td>
+    <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+    <td><%= post.cpu %></td>
+    <td><%= post.comment %></td>
+    <td><%= post.total_price %></td>
+    <td><%= link_to '表示する', post_path(post.id), class: "btn btn-success" %></td>
+  </tr>
+
+<% end %>
+
+</table>

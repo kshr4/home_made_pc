@@ -1,0 +1,45 @@
+<h2>新規会員登録</h2>
+
+<%= form_with model: @customer, url: customer_registration_path, id: 'new_public', class: 'new_public' do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+    <%= f.label "名前　　　　　　　(姓)" %>
+    <%= f.text_field :last_name, autofocus: true %>
+
+    <%= f.label " (名)" %>
+    <%= f.text_field :first_name %><br>
+
+    <%= f.label "フリガナ　　　　(セイ) " %>
+    <%= f.text_field :last_name_kana %>
+
+    <%= f.label "(メイ)" %>
+    <%= f.text_field :first_name_kana %>
+
+  <div class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<p>既に登録済みの方</p>
+<%=link_to new_customer_session_path, class: "btn btn-light" do%>こちら
+<%end%>
+<p>　からログインしてください。</p>
+

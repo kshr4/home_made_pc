@@ -1,0 +1,54 @@
+<p>新規投稿</p>
+
+<%= form_with model: @post, url: posts_path do |f| %>
+  <table border="1">
+    <tr>
+      <th>CPU</th>
+      <th> <%= f.text_field :cpu %>　</th>
+    </tr>
+    <tr>
+      <td>マザーボード</td>
+      <td> <%= f.text_field :motherboard %></td>
+    </tr>
+    <tr>
+      <td>メモリ</td>
+      <td><%= f.text_field :memory %></td>
+    </tr>
+    <tr>
+      <td>電源ユニット</td>
+      <td><%= f.text_field :power_supply_unit %></td>
+    </tr>
+    <tr>
+      <td>筐体</td>
+      <td><%= f.text_field :computer_case %></td>
+    </tr>
+    <tr>
+      <td>HDD</td>
+      <td><%= f.text_field :hdd %></td>
+    </tr>
+    <tr>
+      <td>SSD</td>
+      <td><%= f.text_field :ssd %></td>
+    </tr>
+    <tr>
+      <td>CPUクーラー</td>
+      <td><%= f.text_field :cpu_cooler %></td>
+    </tr>
+    <tr>
+      <td>グラフィックボード</td>
+      <td><%= f.text_field :graphics_board %></td>
+    </tr>
+    <tr>
+      <td>合計金額</td>
+      <td><%= f.text_field :total_price %></td>
+    </tr>
+    <tr>
+      <td>コメント</td>
+      <td><%= f.text_field :comment %></td>
+    </tr>
+
+  </table>
+<br>
+<%= f.submit '編集内容を保存', class: "btn btn-success" %>
+<% end %>
+</body>

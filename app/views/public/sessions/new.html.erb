@@ -1,0 +1,41 @@
+<% if @customer.errors.any? %>
+  <%= @customer.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<h2>ログイン</h2>
+<h3>会員の方はこちらからログイン</h3>
+
+<%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+
+
+
+<p>会員登録がお済みでない方</p>
+<%=link_to "こちら", new_customer_registration_path, class: "btn btn-light" %>
+<p>から新規登録を行ってください。</p>
+
+<p>　</p>
+<%= link_to 'ゲストログイン', public_homes_guest_sign_in_path, method: :post %>

@@ -1,0 +1,35 @@
+<h1>ユーザー一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>会員ID</th>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+    <th>ユーザー削除</th>
+  </tr>
+<% @customers.each do |customer| %>
+  <tr>
+    <td>
+      <%= customer.id %>
+    </td>
+    <td>
+      <%= link_to customer.last_name, edit_admin_customer_path(customer.id), class: "btn btn-light" %><%= link_to customer.first_name, edit_admin_customer_path(customer.id), class: "btn btn-light" %>
+    </td>
+    <td>
+      <%= customer.email %>
+    </td>
+  <% if customer.is_deleted %>
+    <td class="text-secondary font-weight-bold">退会</td>
+  <% else %>
+    <td class="text-success font-weight-bold">有効</td>
+  <% end %>
+    <td>
+    <% if !customer.guest? %>
+      <%= link_to "削除", admin_customer_path(customer.id), method: :delete, data: { confirm: "【確認】ユーザーを削除してもよろしいですか？" } %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+  </table>
+

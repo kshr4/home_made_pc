@@ -1,0 +1,85 @@
+<h1><投稿内容></h1>
+<body>
+  <table border="1">
+    <%= image_tag @post.get_profile_image(300,200), style: "width: 250px; height: 250px; object-fit:cover" %>
+    <tr>
+      <td>CPU</td>
+      <td> <%= @post.cpu %></td>
+    </tr>
+    <tr>
+      <td>マザーボード</td>
+      <td> <%= @post.motherboard %></td>
+    </tr>
+    <tr>
+      <td>メモリ</td>
+      <td><%= @post.memory %></td>
+    </tr>
+    <tr>
+      <td>電源ユニット</td>
+      <td><%= @post.power_supply_unit %></td>
+    </tr>
+    <tr>
+      <td>筐体</td>
+      <td><%= @post.computer_case %></td>
+    </tr>
+    <tr>
+      <td>HDD</td>
+      <td><%= @post.hdd %></td>
+    </tr>
+    <tr>
+      <td>SSD</td>
+      <td><%= @post.ssd %></td>
+    </tr>
+    <tr>
+      <td>CPUクーラー</td>
+      <td><%= @post.cpu_cooler %></td>
+    </tr>
+    <tr>
+      <td>グラフィックボード</td>
+      <td><%= @post.graphics_board %></td>
+    </tr>
+    <tr>
+      <td>合計金額</td>
+      <td><%= @post.total_price %></td>
+    </tr>
+    <tr>
+      <td>コメント</td>
+      <td><%= @post.comment %></td>
+    </tr>
+  </table>
+<br>
+  <p>ユーザーネーム：<%= @post.customer.last_name%><%= @post.customer.first_name%></p>
+  <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post.comment == current_customer %>
+    <%= link_to "削除", comment_path(@post), method: :delete %>
+  <% end %>
+</div>
+
+<div>
+  <p>コメント件数：<%= @post.comments.count %></p>
+  <br>
+  <table border="1">
+    <p>コメント一覧</p>
+    <tr>
+    <td>名前</td>
+    <td>コメント日</td>
+    <td>内容</td>
+    </tr>
+  <% @post.comments.each do |comment| %>
+  <tr>
+    <td><%= comment.customer.first_name %></td>
+    <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+    <td><%= comment.body %></td>
+  </tr>
+  <% end %>
+  </table>
+  <br>
+</div>
+<div>
+
+  <%= form_with model: [@post,@comment], method: :post do |post| %>
+    <%= post.text_area :body, rows: '5', placeholder: "コメントをここに" %>
+    <%= post.submit "送信する" %>
+  <% end %>
+</div>
+</body>

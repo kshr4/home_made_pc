@@ -1,0 +1,40 @@
+<h4>マイページ</h4>
+<br>
+
+<% if !@customer.guest? %>
+<h4>登録情報</h4>
+<%=link_to "編集する", customers_information_edit_path, class: "btn btn-success" %>
+<% end %>
+
+<br>
+<br>
+
+<head>
+</head>
+<body>
+ <table border="1">
+    <tr>
+      <th>氏名</th>
+      <th><%= @customer.last_name %>　<%= @customer.first_name %></th>
+    </tr>
+    <tr>
+      <td>カナ</td>
+      <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <th><%= @customer.email %></th>
+    </tr>
+  </table>
+</body>
+</html>
+<br>
+
+<% if !@customer.guest? %>
+  <h4>自作PCを投稿する</h4>
+  <%=link_to "こちら", new_post_path, class: "btn btn-primary" %>
+
+  <h4>自作PC投稿一覧</h4>
+  <%=link_to "一覧を見る", customers_my_page_path, class: "btn btn-primary" %>
+
+<% end %>
