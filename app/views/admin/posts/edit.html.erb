@@ -51,4 +51,24 @@
 <br>
 <%= f.submit '編集内容を保存', class: "btn btn-success" %>
 <% end %>
+
+<table border="1">
+  <p>コメント一覧</p>
+  <tr>
+    <td>名前</td>
+    <td>コメント日</td>
+    <td>内容</td>
+    <td>コメント削除</td>
+  </tr>
+<% @post.comments.each do |comment| %>
+  <tr>
+    <td><%= comment.customer.first_name %></td>
+    <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+    <td><%= comment.body %></td>
+    <td><%= link_to "削除", admin_comment_path(comment.id), method: :delete, data: { confirm: "【確認】コメントを削除してもよろしいですか？" } %></td>
+  </tr>
+<% end %>
+  </table>
+
+
 </body>

@@ -7,6 +7,7 @@
     <th>CPU</th>
     <th>コメント</th>
     <th>詳細</th>
+    <th>投稿情報削除</th>
   </tr>
 <% @posts.each do |post| %>
   <tr>
@@ -14,7 +15,9 @@
     <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
     <td><%= post.cpu %></td>
     <td><%= post.comment %></td>
-    <td><%= link_to '表示する', admin_post_path(post.id), class: "btn btn-success" %></td>
+    <td><%= link_to '編集する', edit_admin_post_path(post.id), class: "btn btn-success" %></td>
+    <td><%= link_to "削除", admin_post_path(post.id), method: :delete, data: { confirm: "【確認】投稿情報を削除してもよろしいですか？" } %></td>
+
   </tr>
 
 <% end %>
