@@ -1,4 +1,4 @@
-<p>新規投稿</p>
+<p>自作PC新規投稿</p>
 
 <%= form_with model: @post, url: posts_path do |f| %>
   <table border="1">
@@ -49,6 +49,6 @@
 
   </table>
 <br>
-<%= f.submit '編集内容を保存', class: "btn btn-success" %>
+<%= f.submit '投稿する', class: "btn btn-success" %>
 <% end %>
 </body>
