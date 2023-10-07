@@ -48,10 +48,14 @@
     </tr>
   </table>
 <br>
+<% if current_customer.id == @post.customer_id %>
+  <%= link_to "投稿内容を編集する", edit_post_path %>
+<% end %>
+<br>
   <p>ユーザーネーム：<%= @post.customer.last_name%><%= @post.customer.first_name%></p>
   <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @post.comment == current_customer %>
-    <%= link_to "削除", comment_path(@post), method: :delete %>
+  <% if @post.customer_id == current_customer.id %>
+    <%= link_to "削除", root_path(@post), method: :delete %>
   <% end %>
 </div>
 

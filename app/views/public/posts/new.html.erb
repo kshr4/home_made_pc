@@ -3,8 +3,11 @@
 <%= form_with model: @post, url: posts_path do |f| %>
   <table border="1">
     <tr>
-      <th>CPU</th>
-      <th> <%= f.text_field :cpu %>　</th>
+      <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+    </tr>
+    <tr>
+      <td>CPU</td>
+      <td> <%= f.text_field :cpu %>　</td>
     </tr>
     <tr>
       <td>マザーボード</td>
