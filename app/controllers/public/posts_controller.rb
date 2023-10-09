@@ -5,7 +5,9 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts =Post.all
+    # binding.irb
+    @posts = Post.where("cpu LIKE ?", "%#{params[:word]}%")
+    # @posts =Post.all
   end
 
   def show

@@ -15,4 +15,8 @@ class Post < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def favorited_by?(customer)
+    greats.exists?(id: id)
+  end
+
 end

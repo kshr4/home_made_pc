@@ -48,6 +48,7 @@
     </tr>
   </table>
 <br>
+
 <% if current_customer.id == @post.customer_id %>
   <%= link_to "投稿内容を編集する", edit_post_path %>
 <% end %>
@@ -88,6 +89,19 @@
   <%= form_with model: [@post,@comment], method: :post do |post| %>
     <%= post.text_area :body, rows: '5', placeholder: "コメントをここに" %>
     <%= post.submit "送信する" %>
+  <% end %>
+<% if @post.favorited_by?(current_customer) %>
+    <p>
+      <%= link_to post_great_path(@post), method: :delete do %>
+        ♥<%= @post.greats.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_greats_path(@post), method: :post do %>
+        ♡<%= @post.greats.count %> いいね
+      <% end %>
+    </p>
   <% end %>
 <% end %>
 </div>
