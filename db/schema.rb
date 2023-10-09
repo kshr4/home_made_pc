@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_24_115918) do
+ActiveRecord::Schema.define(version: 2023_10_09_132805) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2023_09_24_115918) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.string "cpu", null: false
     t.string "motherboard", null: false
     t.string "memory", null: false
     t.string "power_supply_unit", null: false
@@ -103,6 +102,9 @@ ActiveRecord::Schema.define(version: 2023_09_24_115918) do
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cpu_kind", default: 0, null: false
+    t.string "cpu_model_number"
+    t.string "cpu", default: "", null: false
     t.index ["customer_id"], name: "index_posts_on_customer_id"
   end
 

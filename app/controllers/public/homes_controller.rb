@@ -17,6 +17,7 @@ class Public::HomesController < ApplicationController
   end
 
   def top
+    @chart = Post.group(:cpu_kind).count
   end
 
   def about

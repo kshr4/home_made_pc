@@ -7,6 +7,15 @@
       <th> <%= f.text_field :cpu %>　</th>
     </tr>
     <tr>
+      <td>CPU種類</td>
+      <td><%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {}, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td>CPU型番</td>
+      <td><%= f.text_field :cpu_model_number %></td>
+    </tr>
+
+    <tr>
       <td>マザーボード</td>
       <td> <%= f.text_field :motherboard %></td>
     </tr>

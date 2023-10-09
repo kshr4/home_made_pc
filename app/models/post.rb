@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
   has_one_attached :profile_image #画像用のカラム名
 
+  enum cpu_kind: {intel: 1, ryzen: 2, other: 3}
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
