@@ -59,3 +59,6 @@ gem 'devise'
 
 gem "chartkick"
 gem 'chartable'
+
+gem 'rakuten_web_service'
+gem 'dotenv-rails'
