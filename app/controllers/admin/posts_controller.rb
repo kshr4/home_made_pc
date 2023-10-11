@@ -26,7 +26,7 @@ class Admin::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:profile_image, :cpu, :motherboard, :memory, :power_supply_unit, :computer_case, :hdd, :ssd, :cpu_cooler, :graphics_board, :total_price, :comment)
+    params.require(:post).permit(:profile_image, :cpu, :motherboard, :memory, :power_supply_unit, :computer_case, :hdd, :ssd, :cpu_cooler, :graphics_board, :total_price, :comment, :cpu_kind, :cpu_model_number)
   end
 
 

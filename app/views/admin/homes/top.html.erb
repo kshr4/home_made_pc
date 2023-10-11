@@ -1,3 +1,14 @@
 <h1>おすすめ</h1>
-
+<div class="search-box">
+<% if @items.present? %>
+<% @items.first(5).each do |item| %>
+<div class="list-group">
+  <%= image_tag (item['smallImageUrls'][0]) %>
+  <%= link_to item.name, "#{item.url}" %>
+  <%= number_with_delimiter(item.price) %>円
+</div>
+<% end %>
+<% end %>
+</div>
 <h1>Intel or Ryzenの使用率</h1>
+<%= pie_chart @chart %>
