@@ -9,7 +9,7 @@
 <% if @items.present? %>
 <% @items.first(5).each do |item| %>
 <div class="list-group">
-  <%= image_tag (item['smallImageUrls'][0]) %>
+  <%= image_tag (item['smallImageUrls'][0]), size: "100x100"  %>
   <%= link_to item.name, "#{item.url}" %>
   <%= number_with_delimiter(item.price) %>円
 </div>

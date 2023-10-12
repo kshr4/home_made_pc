@@ -3,6 +3,10 @@
 <%= form_with model: @post, url: post_path, method: :patch do |f| %>
   <table border="1">
     <tr>
+      <th>投稿画像</th>
+      <th><%= image_tag @post.get_profile_image(300,200), style: "width: 200px; height: 200px; object-fit:cover" %></th>
+    </tr>
+    <tr>
       <th>CPU</th>
       <th> <%= f.text_field :cpu %>　</th>
     </tr>
