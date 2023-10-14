@@ -2,37 +2,37 @@
 
 <%= form_with model: @customer, url: customer_registration_path, id: 'new_public', class: 'new_public' do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-    <%= f.label "名前　　　　　　　(姓)" %>
-    <%= f.text_field :last_name, autofocus: true %>
-
-    <%= f.label " (名)" %>
-    <%= f.text_field :first_name %><br>
-
-    <%= f.label "フリガナ　　　　(セイ) " %>
-    <%= f.text_field :last_name_kana %>
-
-    <%= f.label "(メイ)" %>
-    <%= f.text_field :first_name_kana %>
-
-  <div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+      <p>名前</p>
+      <%= f.label "(姓)" %>
+      <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
   </div>
-
-  <div class="field">
+  <div class="form-group">
+    <%= f.label " (名)" %>
+    <%= f.text_field :first_name, class: "form-control" %><br>
+  </div>
+  <div class="form-group">
+    <p>フリガナ</p>
+    <%= f.label "(セイ) " %>
+    <%= f.text_field :last_name_kana, class: "form-control" %>
+    <%= f.label "(メイ)" %>
+    <%= f.text_field :first_name_kana, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label :パスワードの確認 %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
-
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>
