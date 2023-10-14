@@ -23,13 +23,13 @@
   <div class="field">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
+    <%= f.label :パスワードの確認 %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -37,9 +37,9 @@
     <%= f.submit "新規登録" %>
   </div>
 <% end %>
-
-<p>既に登録済みの方</p>
-<%=link_to new_customer_session_path, class: "btn btn-light" do%>こちら
+<br>
+<p>・既に登録済みの方
+<%=link_to new_customer_session_path do%>こちら
 <%end%>
-<p>　からログインしてください。</p>
+からログインしてください。</p>
 

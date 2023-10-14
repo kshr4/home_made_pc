@@ -89,9 +89,12 @@
         </div>
       </nav>
     </header>
-    <%= flash[:notice] %>
+    <main class="container">
+      <%= flash[:notice] %>
+      <%= yield %>
+    </main>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= yield %>
   </body>
 </html>

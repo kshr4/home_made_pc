@@ -15,27 +15,26 @@
 
 <%= form_with model: @customer, url: customer_session_path do |f| %>
   <div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :メールアドレス %></td>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <td><%= f.label :パスワード %></td>
+    <td><%= f.password_field :password, autocomplete: "current-password" %></td>
   </div>
-
+  </tr>
+</table>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
 <% end %>
-
-
-
-
-<p>会員登録がお済みでない方</p>
-<%=link_to "こちら", new_customer_registration_path, class: "btn btn-light" %>
-<p>から新規登録を行ってください。</p>
-
-<p>　</p>
+<br>
+<p>・会員登録がお済みでない方
+<%=link_to "こちら", new_customer_registration_path %>
+から新規登録を行ってください。</p>
+<br>
+<p>・投稿一覧を閲覧したい方は
 <%= link_to 'ゲストログイン', public_homes_guest_sign_in_path, method: :post %>
+で閲覧可能です。</p>

@@ -26,7 +26,7 @@
   <% end %>
     <td>
     <% if !customer.guest? %>
-      <%= link_to "削除", admin_customer_path(customer.id), method: :delete, data: { confirm: "【確認】ユーザーを削除してもよろしいですか？" } %>
+      <%= link_to "削除", admin_customer_path(customer.id), method: :delete, data: { confirm: "【確認】ユーザーを削除してもよろしいですか？" }, class: "btn btn-danger" %>
     <% end %>
     </td>
   </tr>

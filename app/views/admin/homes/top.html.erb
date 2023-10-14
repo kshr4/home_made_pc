@@ -1,14 +1,32 @@
-<h1>おすすめ</h1>
-<div class="search-box">
-<% if @items.present? %>
-<% @items.first(5).each do |item| %>
-<div class="list-group">
-  <%= image_tag (item['smallImageUrls'][0]),size: "100x100" %>
-  <%= link_to item.name, "#{item.url}" %>
-  <%= number_with_delimiter(item.price) %>円
+<div class= "row justify-content-center align-items-center">
+  <div class="col-12 col-md-4">
+    <div class="form-group">
+      <h1>おすすめ</h1>
+      <div class="search-box">
+        <% if @items.present? %>
+          <% @items.first(5).each do |item| %>
+            <div class="list-group">
+              <div class="text-center">
+                <div class="container text-center">
+                  <div class="row align-items-start">
+                    <div class="col" >
+                      <%= image_tag (item['smallImageUrls'][0]) %>
+                      <%= link_to item.name, "#{item.url}" %>
+                      <%= number_with_delimiter(item.price) %>円
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 align-self-end col-md-4">
+    <div class="form-group">
+      <h1>Intel or Ryzenの使用率</h1>
+      <%= pie_chart @chart %>
+    </div>
+  </div>
 </div>
-<% end %>
-<% end %>
-</div>
-<h1>Intel or Ryzenの使用率</h1>
-<%= pie_chart @chart %>

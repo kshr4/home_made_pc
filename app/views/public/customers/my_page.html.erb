@@ -1,6 +1,6 @@
 <h1><投稿一覧></h1>
 
-<table border="1">
+<table class="table table-striped">
   <tr>
     <th>投稿日</th>
     <th>CPU</th>
@@ -18,7 +18,7 @@
     <td><%= post.computer_case %></td>
     <td><%= post.total_price %></td>
     <td><%= link_to '表示する', post_path(post.id), class: "btn btn-success" %></td>
-    <td><%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: "【確認】投稿情報を削除してもよろしいですか？" } %></td>
+    <td><%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: "【確認】投稿情報を削除してもよろしいですか？" } , class: "btn btn-danger"%></td>
   </tr>
 
 <% end %>
