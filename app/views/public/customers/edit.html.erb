@@ -5,16 +5,16 @@
 <%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
   <table border="1" class="form-table">
     <tr>
-      <th>氏名</th>
-      <th> <%= f.text_field :last_name %>　<%= f.text_field :first_name %>　</th>
+      <th class="form-item">氏名</th>
+      <th class="form-item-input"> <%= f.text_field :last_name , class: "form-control" %>　<%= f.text_field :first_name , class: "form-control" %>　</th>
     </tr>
     <tr>
-      <td>フリガナ</td>
-      <td> <%= f.text_field :last_name_kana %>　<%= f.text_field :first_name_kana %>　</td>
+      <td class="form-item">フリガナ</td>
+      <td class="form-item-input"> <%= f.text_field :last_name_kana , class: "form-control" %>　<%= f.text_field :first_name_kana , class: "form-control" %>　</td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
-      <td><%= f.text_field :email %></td>
+      <td class="form-item">メールアドレス</td>
+      <td class="form-item-input"><%= f.text_field :email , class: "form-control" %></td>
     </tr>
   </table>
 
