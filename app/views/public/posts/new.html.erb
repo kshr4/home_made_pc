@@ -1,21 +1,21 @@
 <p>自作PC新規投稿</p>
 
 <%= form_with model: @post, url: posts_path do |f| %>
-  <table border="1">
+  <table border="1" class="form-table">
     <tr>
       <td><%= f.file_field :profile_image, accept: "image/*" %></td>
     </tr>
     <tr>
       <td>CPU</td>
-      <td><%= f.text_field :cpu %></td>
+      <td><%= f.text_field :cpu, class: "form-control" %></td>
     </tr>
     <tr>
-      <td>CPU種類</td>
-      <td><%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {}, class: 'form-control' %></td>
+      <td class="form-item">CPU種類</td>
+      <td class="form-item-input"><%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {}, class: "form-control" %></td>
     </tr>
     <tr>
       <td>CPU型番</td>
-      <td><%= f.text_field :cpu_model_number %></td>
+      <td><%= f.text_field :cpu_model_number, class: "form-control" %></td>
     </tr>
 
     <tr>

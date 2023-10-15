@@ -1,1 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
+
+.form-table {
+  width: 100%;
+  .form-item{
+    width: 30%;
+  }
+  .form-item-input{
+    width: 70%;
+  }
+}

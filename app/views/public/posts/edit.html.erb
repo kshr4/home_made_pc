@@ -1,7 +1,7 @@
 <h1><投稿内容></h1>
 <body>
 <%= form_with model: @post, url: post_path, method: :patch do |f| %>
-  <table border="1">
+  <table border="1" class="form-table">
     <tr>
       <th>投稿画像</th>
       <th><%= image_tag @post.get_profile_image(300,200), style: "width: 200px; height: 200px; object-fit:cover" %></th>
