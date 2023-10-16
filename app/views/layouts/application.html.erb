@@ -22,64 +22,64 @@
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
               <li>
-                <%=link_to root_path, class: "btn btn-light" do%>
+                <%=link_to root_path, class: "btn btn-primary" do%>
                 トップページ
                 <%end%>
               </li>
               <li>
-                <%=link_to posts_path, class: "btn btn-light" do%>
+                <%=link_to posts_path, class: "btn btn-primary" do%>
                 投稿一覧
                 <%end%>
               </li>
               <li>
-                <%=link_to customers_path, class: "btn btn-light" do%>
+                <%=link_to customers_path, class: "btn btn-primary" do%>
                 マイページ
                 <%end%>
               </li>
               <li>
-                <%=link_to destroy_customer_session_path, method: :delete, class: "btn btn-light" do%>
+                <%=link_to destroy_customer_session_path, method: :delete, class: "btn btn-danger" do%>
                 ログアウト
                 <% end %>
               </li>
               <% elsif admin_signed_in? %>
               <li>
-                <%= link_to admin_root_path, class: "btn btn-light" do %>
+                <%= link_to admin_root_path, class: "btn btn-primary" do %>
                   トップページ
                 <% end %>
               </li>
               <li>
-                <%=link_to admin_posts_path, class: "btn btn-light" do%>
+                <%=link_to admin_posts_path, class: "btn btn-primary" do%>
                   投稿一覧
                 <%end%>
               </li>
               <li>
-                <%=link_to admin_customers_path, class: "btn btn-light" do%>
+                <%=link_to admin_customers_path, class: "btn btn-primary" do%>
                  ユーザー一覧
                 <%end%>
               </li>
               <li>
-                <%=link_to destroy_admin_session_path, method: :delete, class: "btn btn-light" do%>
+                <%=link_to destroy_admin_session_path, method: :delete, class: "btn btn-danger" do%>
                  ログアウト
                 <%end%>
               </li>
               <% else %>
               <li>
-                <%=link_to root_path, class: "btn btn-light" do%>
+                <%=link_to root_path, class: "btn btn-primary" do%>
                 トップページ
                 <%end%>
               </li>
               <li>
-                <%=link_to new_customer_registration_path, class: "btn btn-light" do%>
+                <%=link_to new_customer_registration_path, class: "btn btn-success" do%>
                 新規登録
                 <%end%>
               </li>
               <li>
-                <%=link_to public_homes_about_path, class: "btn btn-light" do%>
+                <%=link_to public_homes_about_path, class: "btn btn-primary" do%>
                 About
                 <%end%>
               </li>
               <li>
-                <%=link_to new_customer_session_path, class: "btn btn-light" do%>
+                <%=link_to new_customer_session_path, class: "btn btn-success" do%>
                 ログイン
                 <%end%>
               </li>

@@ -59,8 +59,9 @@
 <br>
 
 <% if current_customer.id == @post.customer_id %>
-  <%= link_to "投稿内容を編集する", edit_post_path %>
+  <%= link_to "投稿内容を編集する", edit_post_path, class: "btn btn-success" %>
 <% end %>
+<br>
 <br>
   <p>ユーザーネーム：<%= @post.customer.last_name%><%= @post.customer.first_name%></p>
   <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
@@ -86,7 +87,7 @@
     <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
     <td><%= comment.body %></td>
     <% if current_customer.id == @post.customer_id %>
-      <td><%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "【確認】コメントを削除してもよろしいですか？" } %></td>
+      <td><%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "【確認】コメントを削除してもよろしいですか？" }, class: "btn btn-danger"%></td>
     <% end %>
   </tr>
 <% end %>
@@ -96,8 +97,9 @@
 <div>
 <% if !@customer.guest? %>
   <%= form_with model: [@post,@comment], method: :post do |post| %>
-    <%= post.text_area :body, rows: '5', placeholder: "コメントをここに" %>
-    <%= post.submit "送信する" %>
+    <%= post.text_area :body, rows: '6', placeholder: "コメントをここに", class: "form-control" %>
+    <br>
+    <%= post.submit "送信する", class: "btn btn-success" %>
   <% end %>
 <% if @post.favorited_by?(current_customer) %>
     <p>

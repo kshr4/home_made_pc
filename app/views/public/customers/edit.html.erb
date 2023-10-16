@@ -6,11 +6,11 @@
   <table border="1" class="form-table">
     <tr>
       <th class="form-item">氏名</th>
-      <th class="form-item-input"> <%= f.text_field :last_name , class: "form-control" %>　<%= f.text_field :first_name , class: "form-control" %>　</th>
+      <th class="form-item-input"> <%= f.text_field :last_name , class: "form-control" %>　<%= f.text_field :first_name, class: "form-control" %>　</th>
     </tr>
     <tr>
       <td class="form-item">フリガナ</td>
-      <td class="form-item-input"> <%= f.text_field :last_name_kana , class: "form-control" %>　<%= f.text_field :first_name_kana , class: "form-control" %>　</td>
+      <td class="form-item-input"> <%= f.text_field :last_name_kana , class: "form-control" %>　<%= f.text_field :first_name_kana, class: "form-control" %>　</td>
     </tr>
     <tr>
       <td class="form-item">メールアドレス</td>
@@ -20,7 +20,7 @@
 
   <br>
   <%= f.submit '編集内容を保存', class: "btn btn-success" %>
+  <%=link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
 <% end %>
   <br>
 </body>
-<%=link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
