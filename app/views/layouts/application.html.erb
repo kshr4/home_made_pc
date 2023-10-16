@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg header_style">
         <div class="container">
           <a class="navbar-brand" href="/"><span>HomeMadePc</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,64 +22,64 @@
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
               <li>
-                <%=link_to root_path, class: "btn btn-primary" do%>
+                <%=link_to root_path, class: "btn btn-info" do%>
                 トップページ
                 <%end%>
               </li>
               <li>
-                <%=link_to posts_path, class: "btn btn-primary" do%>
+                <%=link_to posts_path, class: "btn btn-info" do%>
                 投稿一覧
                 <%end%>
               </li>
               <li>
-                <%=link_to customers_path, class: "btn btn-primary" do%>
+                <%=link_to customers_path, class: "btn btn-info" do%>
                 マイページ
                 <%end%>
               </li>
               <li>
-                <%=link_to destroy_customer_session_path, method: :delete, class: "btn btn-danger" do%>
+                <%=link_to destroy_customer_session_path, method: :delete, class: "btn btn-info" do%>
                 ログアウト
                 <% end %>
               </li>
               <% elsif admin_signed_in? %>
               <li>
-                <%= link_to admin_root_path, class: "btn btn-primary" do %>
+                <%= link_to admin_root_path, class: "btn btn-info" do %>
                   トップページ
                 <% end %>
               </li>
               <li>
-                <%=link_to admin_posts_path, class: "btn btn-primary" do%>
+                <%=link_to admin_posts_path, class: "btn btn-info" do%>
                   投稿一覧
                 <%end%>
               </li>
               <li>
-                <%=link_to admin_customers_path, class: "btn btn-primary" do%>
+                <%=link_to admin_customers_path, class: "btn btn-info" do%>
                  ユーザー一覧
                 <%end%>
               </li>
               <li>
-                <%=link_to destroy_admin_session_path, method: :delete, class: "btn btn-danger" do%>
+                <%=link_to destroy_admin_session_path, method: :delete, class: "btn btn-info" do%>
                  ログアウト
                 <%end%>
               </li>
               <% else %>
               <li>
-                <%=link_to root_path, class: "btn btn-primary" do%>
+                <%=link_to root_path, class: "btn btn-info" do%>
                 トップページ
                 <%end%>
               </li>
               <li>
-                <%=link_to new_customer_registration_path, class: "btn btn-success" do%>
+                <%=link_to new_customer_registration_path, class: "btn btn-info" do%>
                 新規登録
                 <%end%>
               </li>
               <li>
-                <%=link_to public_homes_about_path, class: "btn btn-primary" do%>
+                <%=link_to public_homes_about_path, class: "btn btn-info" do%>
                 About
                 <%end%>
               </li>
               <li>
-                <%=link_to new_customer_session_path, class: "btn btn-success" do%>
+                <%=link_to new_customer_session_path, class: "btn btn-info" do%>
                 ログイン
                 <%end%>
               </li>
@@ -97,4 +97,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
+  <footer class="text-white pt-3 pb-2 footer_style">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <p>楽天API</p>
+          <p>Copyright © Kacha. All Rights Reserved.</p>
+        </div>
+        <div class="col-md-8">
+          <ul class="p-0 list-unstyled">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </html>
