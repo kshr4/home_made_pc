@@ -34,6 +34,7 @@ scope module: :public do
   patch 'customers/information' => 'customers#update'
   get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
   patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+  get 'customers/my_greats_page' => 'customers#my_greats_page'
 end
 
 namespace :admin do

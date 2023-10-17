@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :greats, dependent: :destroy
+  has_many :great_posts, through: :greats, source: :post
   has_many :comments, dependent: :destroy
 
   def guest?

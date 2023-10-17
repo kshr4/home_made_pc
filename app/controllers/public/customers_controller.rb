@@ -28,6 +28,10 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  def my_greats_page
+    @posts = current_customer.great_posts
+  end
+
 
   private
   def customer_params

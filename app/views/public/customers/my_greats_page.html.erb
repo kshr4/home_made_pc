@@ -1,4 +1,4 @@
-<h1>自作PC投稿一覧</h1>
+<h1>いいね一覧</h1>
 
 <p>CPUの検索</p>
   <div class="search_form">
@@ -7,13 +7,6 @@
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
-
-  <p>CPUの種類</p>
-  <div class="search_form">
-    <%= form_with url: posts_path, local: true, method: :get do |f| %>
-      <%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {} %> <%# params[:word] %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
 
 <table class="table table-striped">
   <tr>
@@ -31,7 +24,7 @@
     <td><%= post.cpu %></td>
     <td><%= post.comment %></td>
     <td><%= post.total_price %></td>
-    <td><%= link_to '表示する', post_path(post.id), class: "btn btn-primary" %></td>
+    <td><%= link_to '表示する', post_path(post), class: "btn btn-primary" %></td>
   </tr>
 
 <% end %>
