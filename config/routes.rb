@@ -23,11 +23,12 @@ get "search" => "searches#search"
 scope module: :public do
   root controller: :homes, action: :top
   get :about, controller: :homes, action: :about
+  get 'posts/tag' => 'posts#tag'
   resources :posts, only: [:index, :show, :edit, :new, :update, :destroy, :create] do
     resources :comments#必要のない部分は後でonlyで実施する。
     resources :greats#必要のない部分は後でonlyで実施する。
-
   end
+
   get 'customers' => 'customers#show'
   get 'customers/my_page' => 'customers#my_page'
   get 'customers/information/edit' => 'customers#edit'

@@ -10,16 +10,18 @@
 
   <p>CPUの種類</p>
   <div class="search_form">
-    <%= form_with url: posts_path, local: true, method: :get do |f| %>
+    <%= form_with url: posts_tag_path, local: true, method: :get do |f| %>
       <%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {} %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
+  </div>
 
 <table class="table table-striped">
   <tr>
     <th>投稿者名</th>
     <th>投稿日</th>
     <th>CPU</th>
+    <th>CPU種類</th>
     <th>コメント</th>
     <th>合計金額</th>
     <th>詳細</th>
@@ -29,6 +31,7 @@
     <td><%= post.customer.last_name %><%= post.customer.first_name %></td>
     <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
     <td><%= post.cpu %></td>
+    <td><%= post.cpu_kind %></td>
     <td><%= post.comment %></td>
     <td><%= post.total_price %></td>
     <td><%= link_to '表示する', post_path(post.id), class: "btn btn-primary" %></td>
@@ -37,3 +40,4 @@
 <% end %>
 
 </table>
+<%= paginate @posts %>
