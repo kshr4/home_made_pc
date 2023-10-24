@@ -25,11 +25,11 @@
     <td class="text-success font-weight-bold">有効</td>
   <% end %>
     <td>
-    <% if !customer.guest? %>
+  <% if !customer.guest? %>
       <%= link_to "削除", admin_customer_path(customer.id), method: :delete, data: { confirm: "【確認】ユーザーを削除してもよろしいですか？" }, class: "btn btn-danger" %>
-    <% end %>
+  <% end %>
     </td>
   </tr>
 <% end %>
   </table>
-
+<%= paginate @customers %>

@@ -5,7 +5,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def my_page
-    @posts = current_customer.posts#ログインしているユーザーの投稿したデータが@postsに入っている。
+    @posts = current_customer.posts.page(params[:page]).per(5)#ログインしているユーザーの投稿したデータが@postsに入っている。
   end
 
   def edit
@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def my_greats_page
-    @posts = current_customer.great_posts
+    @posts = current_customer.great_posts.page(params[:page]).per(5)
   end
 
 

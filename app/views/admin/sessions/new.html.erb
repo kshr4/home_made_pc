@@ -14,15 +14,15 @@
 <%= form_with model: @admin, url: admin_session_path do |f| %>
   <div class="field">
     <div class="form-group">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+      <%= f.label :メールアドレス %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
     </div>
   </div>
 
   <div class="field">
     <div class="form-group">
-    <%= f.label :パスワード %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control"  %>
+      <%= f.label :パスワード %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control"  %>
     </div>
   </div>
 

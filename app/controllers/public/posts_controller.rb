@@ -6,15 +6,11 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.where("cpu LIKE ?", "%#{params[:word]}%").page(params[:page]).per(5)
-
-    # binding.pry
     #like:曖昧検索、?：#{params[:word]}が入っている。
-    # @pages = Post.all.page(params[:page]).per(2)
-    # @posts =Post.all
   end
 
   def tag
-    @posts = Post.where(cpu_kind: params[:cpu_kind])
+    @posts = Post.where(cpu_kind: params[:cpu_kind]).page(params[:page]).per(5)
     render "index"
   end
 
@@ -22,7 +18,6 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @customer = current_customer
-
   end
 
   def edit
@@ -39,7 +34,6 @@ class Public::PostsController < ApplicationController
     @post = current_customer.posts.new(post_params)
     @post.save
     redirect_to customers_path
-
   end
 
   def destroy
