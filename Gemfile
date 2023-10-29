@@ -62,7 +62,6 @@ gem "chartkick"
 gem 'chartable'
 
 gem 'rakuten_web_service'
-gem 'dotenv-rails'
 gem 'kaminari'
 gem 'dotenv-rails'
 group :production do
@@ -71,3 +70,5 @@ end
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+gem 'rails-i18n'
+gem 'devise-i18n-views'

@@ -1,0 +1,40 @@
+ja:
+  devise:
+    failure:
+      invalid: メールアドレスまたはパスワードが正しくありません。
+    sessions:
+      signed_in: ログインに成功しました。
+      signed_out: ログアウトしました。
+    registrations:
+      user:
+        signed_up: "アカウント登録が完了しました。"
+      signed_up: "アカウント登録が完了しました。"
+  errors:
+    messages:
+      not_saved:
+        one: '1件のエラーが発生したため %{resource} は保存されませんでした。'
+        other: '%{count} 件のエラーが発生したため %{resource} は保存されませんでした。'
+  activerecord:
+    models:
+      customer: '会員'
+      post: '投稿'
+    attributes:
+      customer:
+        email: 'メールアドレス'
+        last_name: '姓'
+        first_name: '名'
+        last_name_kana: 'セイ'
+        first_name_kana: 'メイ'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+      post:
+        cpu_cooler: 'CPUクーラー'
+        motherboard: 'マザーボード'
+        memory: 'メモリ'
+        power_supply_unit: '電源ユニット'
+        computer_case: '筐体'
+        graphics_board: 'グラフィックボード'
+        total_price: '合計金額'
+        comment: 'コメント'
+        cpu_model_number: 'CPU型番'
+        cpu: 'CPU'

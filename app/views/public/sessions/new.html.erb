@@ -1,19 +1,8 @@
-<% if @customer.errors.any? %>
-  <%= @customer.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @customer.errors.full_messages.each do |message| %>
-      <li>
-        <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-
-
 <h1>ログイン</h1>
 <h3>会員の方はこちらからログイン</h3>
 
 <%= form_with model: @customer, url: customer_session_path do |f| %>
+  <p class="alert"><%= alert %></p>
   <div class="field">
     <div class="form-group">
     <%= f.label :メールアドレス %></td>

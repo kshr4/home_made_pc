@@ -26,14 +26,20 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = current_customer.posts.find_by(id: params[:id])
-    @post.update(post_params)
-    redirect_to customers_path
+    if @post.update(post_params)
+      redirect_to customers_path
+    else
+      render :edit
+    end
   end
 
   def create
     @post = current_customer.posts.new(post_params)
-    @post.save
-    redirect_to customers_path
+    if @post.save
+      redirect_to customers_path
+    else
+      render :new
+    end
   end
 
   def destroy

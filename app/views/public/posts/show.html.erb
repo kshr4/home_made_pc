@@ -1,63 +1,66 @@
 <h1><投稿内容></h1>
 <body>
-  <table border="1">
-    <%= image_tag @post.get_profile_image(300,200), style: "width: 250px; height: 250px; object-fit:cover" %>
-    <tr>
-      <td>CPU</td>
-      <td> <%= @post.cpu %></td>
-    </tr>
-    <tr>
-      <td>CPU種類</td>
-      <td> <%= @post.cpu_kind %></td>
-    </tr>
-    <tr>
-      <td>CPU型番</td>
-      <td> <%= @post.cpu_model_number %></td>
-    </tr>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class= "table">
+        <%= image_tag @post.get_profile_image(300,200), style: "width: 250px; height: 250px; object-fit:cover" %>
+        <tr>
+          <td>CPU</td>
+          <td> <%= @post.cpu %></td>
+        </tr>
+        <tr>
+          <td>CPU種類</td>
+          <td> <%= @post.cpu_kind %></td>
+        </tr>
+        <tr>
+          <td>CPU型番</td>
+          <td> <%= @post.cpu_model_number %></td>
+        </tr>
 
-    <tr>
-      <td>マザーボード</td>
-      <td> <%= @post.motherboard %></td>
-    </tr>
-    <tr>
-      <td>メモリ</td>
-      <td><%= @post.memory %></td>
-    </tr>
-    <tr>
-      <td>電源ユニット</td>
-      <td><%= @post.power_supply_unit %></td>
-    </tr>
-    <tr>
-      <td>筐体</td>
-      <td><%= @post.computer_case %></td>
-    </tr>
-    <tr>
-      <td>HDD</td>
-      <td><%= @post.hdd %></td>
-    </tr>
-    <tr>
-      <td>SSD</td>
-      <td><%= @post.ssd %></td>
-    </tr>
-    <tr>
-      <td>CPUクーラー</td>
-      <td><%= @post.cpu_cooler %></td>
-    </tr>
-    <tr>
-      <td>グラフィックボード</td>
-      <td><%= @post.graphics_board %></td>
-    </tr>
-    <tr>
-      <td>合計金額</td>
-      <td><%= @post.total_price %></td>
-    </tr>
-    <tr>
-      <td>コメント</td>
-      <td><%= @post.comment %></td>
-    </tr>
-  </table>
-<br>
-
+        <tr>
+          <td>マザーボード</td>
+          <td> <%= @post.motherboard %></td>
+        </tr>
+        <tr>
+          <td>メモリ</td>
+          <td><%= @post.memory %></td>
+        </tr>
+        <tr>
+          <td>電源ユニット</td>
+          <td><%= @post.power_supply_unit %></td>
+        </tr>
+        <tr>
+          <td>筐体</td>
+          <td><%= @post.computer_case %></td>
+        </tr>
+        <tr>
+          <td>HDD</td>
+          <td><%= @post.hdd %></td>
+        </tr>
+        <tr>
+          <td>SSD</td>
+          <td><%= @post.ssd %></td>
+        </tr>
+        <tr>
+          <td>CPUクーラー</td>
+          <td><%= @post.cpu_cooler %></td>
+        </tr>
+        <tr>
+          <td>グラフィックボード</td>
+          <td><%= @post.graphics_board %></td>
+        </tr>
+        <tr>
+          <td>合計金額</td>
+          <td><%= @post.total_price %></td>
+        </tr>
+        <tr>
+          <td>コメント</td>
+          <td><%= @post.comment %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
 <% if current_customer.id == @post.customer_id %>
   <%= link_to "投稿内容を編集する", edit_post_path, class: "btn btn-success" %>
 <% end %>
@@ -70,50 +73,51 @@
 <div>
   <p>コメント件数：<%= @post.comments.count %></p>
   <br>
-
-  <table border="1">
-    <p>コメント一覧</p>
-    <tr>
-    <td>名前</td>
-    <td>コメント日</td>
-    <td>内容</td>
-    <% if current_customer.id == @post.customer_id %>
-      <td>コメント削除</td>
-    <% end %>
-    </tr>
-  <% @post.comments.each do |comment| %>
-  <tr>
-    <td><%= comment.customer.first_name %></td>
-    <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
-    <td><%= comment.body %></td>
-    <% if current_customer.id == @post.customer_id %>
-      <td><%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "【確認】コメントを削除してもよろしいですか？" }, class: "btn btn-danger"%></td>
-    <% end %>
-  </tr>
-<% end %>
-  </table>
-  <br>
-</div>
-<div>
-<% if !@customer.guest? %>
-  <%= form_with model: [@post,@comment], method: :post do |post| %>
-    <%= post.text_area :body, rows: '6', placeholder: "コメントをここに", class: "form-control" %>
-    <br>
-    <%= post.submit "送信する", class: "btn btn-success" %>
-  <% end %>
-<% if @post.favorited_by?(current_customer) %>
-    <p>
-      <%= link_to post_great_path(@post), method: :delete do %>
-        ♥<%= @post.greats.count %> いいね
+  <div class="row">
+    <div class="col-sm-12">
+      <table class= "table">
+        <p>コメント一覧</p>
+        <tr>
+          <td>名前</td>
+          <td>コメント日</td>
+          <td>内容</td>
+          <% if current_customer.id == @post.customer_id %>
+            <td>コメント削除</td>
+          <% end %>
+        </tr>
+      <% @post.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.customer.first_name %></td>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= comment.body %></td>
+          <% if current_customer.id == @post.customer_id %>
+            <td><%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "【確認】コメントを削除してもよろしいですか？" }, class: "btn btn-danger"%></td>
+          <% end %>
+        </tr>
       <% end %>
+      </table>
+      <br>
+    </div>
+  <div>
+    <% if !@customer.guest? %>
+      <%= form_with model: [@post,@comment], method: :post do |post| %>
+        <%= post.text_area :body, rows: '6', placeholder: "コメントをここに", class: "form-control" %>
+        <br>
+        <%= post.submit "送信する", class: "btn btn-success" %>
+      <% end %>
+    <% if @post.favorited_by?(current_customer) %>
+      <p>
+        <%= link_to post_great_path(@post), method: :delete do %>
+        ♥<%= @post.greats.count %> いいね
+    <% end %>
     </p>
     <% else %>
-    <p>
-      <%= link_to post_greats_path(@post), method: :post do %>
-        ♡<%= @post.greats.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
-<% end %>
-</div>
+      <p>
+        <%=link_to post_greats_path(@post), method: :post do %>
+          ♡<%= @post.greats.count %> いいね
+        <% end %>
+      </p>
+    <% end %>
+    <% end %>
+  </div>
 </body>

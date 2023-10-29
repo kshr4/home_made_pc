@@ -1,67 +1,71 @@
-<h4>自作PC新規投稿</h4>
-
-<%= form_with model: @post, url: posts_path do |f| %>
-  <table border="1" class="form-table">
-    <tr>
-      <td class="form-item">完成した自作PC</td>
-      <td class="form-item-input"><%= f.file_field :profile_image, accept: "image/*", class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">CPU</td>
-      <td class="form-item-input"><%= f.text_field :cpu, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">CPU種類</td>
-      <td class="form-item-input"><%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {}, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">CPU型番</td>
-      <td class="form-item-input"><%= f.text_field :cpu_model_number, class: "form-control" %></td>
-    </tr>
-
-    <tr>
-      <td class="form-item">マザーボード</td>
-      <td class="form-item-input"> <%= f.text_field :motherboard, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">メモリ</td>
-      <td class="form-item-input"><%= f.text_field :memory, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">電源ユニット</td>
-      <td class="form-item-input"><%= f.text_field :power_supply_unit, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">筐体</td>
-      <td class="form-item-input"><%= f.text_field :computer_case, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">HDD</td>
-      <td class="form-item-input"><%= f.text_field :hdd, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">SSD</td>
-      <td class="form-item-input"><%= f.text_field :ssd, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">CPUクーラー</td>
-      <td class="form-item-input"><%= f.text_field :cpu_cooler, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">グラフィックボード</td>
-      <td class="form-item-input"><%= f.text_field :graphics_board, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">合計金額</td>
-      <td class="form-item-input"><%= f.text_field :total_price, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <td class="form-item">コメント</td>
-      <td class="form-item-input"><%= f.text_field :comment, class: "form-control" %></td>
-    </tr>
-
-  </table>
+<h1>自作PC新規投稿</h1>
 <br>
+<%= render "public/shared/error_messages", resource: @post %>
+<%= form_with model: @post, url: posts_path do |f| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table">
+        <tr>
+          <td class="form-item">完成した自作PC</td>
+          <td class="form-item-input"><%= f.file_field :profile_image, accept: "image/*", class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">CPU</td>
+          <td class="form-item-input"><%= f.text_field :cpu, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">CPU種類</td>
+          <td class="form-item-input"><%= f.select :cpu_kind, Post.cpu_kinds.keys.to_a, {}, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">CPU型番</td>
+          <td class="form-item-input"><%= f.text_field :cpu_model_number, class: "form-control" %></td>
+        </tr>
+
+        <tr>
+          <td class="form-item">マザーボード</td>
+          <td class="form-item-input"> <%= f.text_field :motherboard, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">メモリ</td>
+          <td class="form-item-input"><%= f.text_field :memory, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">電源ユニット</td>
+          <td class="form-item-input"><%= f.text_field :power_supply_unit, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">筐体</td>
+          <td class="form-item-input"><%= f.text_field :computer_case, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">HDD</td>
+          <td class="form-item-input"><%= f.text_field :hdd, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">SSD</td>
+          <td class="form-item-input"><%= f.text_field :ssd, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">CPUクーラー</td>
+          <td class="form-item-input"><%= f.text_field :cpu_cooler, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">グラフィックボード</td>
+          <td class="form-item-input"><%= f.text_field :graphics_board, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">合計金額</td>
+          <td class="form-item-input"><%= f.text_field :total_price, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td class="form-item">コメント</td>
+          <td class="form-item-input"><%= f.text_field :comment, class: "form-control" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
 <%= f.submit '投稿する', class: "btn btn-success" %>
 <% end %>
 </body>

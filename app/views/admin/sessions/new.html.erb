@@ -14,6 +14,7 @@
 <%= form_with model: @admin, url: admin_session_path do |f| %>
   <div class="field">
     <div class="form-group">
+      <p class="alert"><%= alert %></p>
       <%= f.label :メールアドレス %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
     </div>
