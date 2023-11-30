@@ -1,5 +1,5 @@
 class Public::GreatsController < ApplicationController
-
+before_action :authenticate_customer!
   def create
     post = Post.find(params[:post_id])
     great = current_customer.greats.new(post_id: post.id)

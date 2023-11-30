@@ -78,11 +78,11 @@
       <table class= "table">
         <p>コメント一覧</p>
         <tr>
-          <td>名前</td>
+          <td nowrap>名前</td>
           <td>コメント日</td>
           <td>内容</td>
           <% if current_customer.id == @post.customer_id %>
-            <td>コメント削除</td>
+            <td nowrap>コメント削除</td>
           <% end %>
         </tr>
       <% @post.comments.each do |comment| %>

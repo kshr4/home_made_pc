@@ -10,11 +10,11 @@
 
 <table class="table table-striped">
   <tr>
-    <th>投稿者名</th>
+    <th nowrap>投稿者名</th>
     <th>投稿日</th>
     <th>CPU</th>
-    <th>コメント</th>
-    <th>合計金額</th>
+    <th nowrap>コメント</th>
+    <th nowrap>合計金額</th>
     <th>詳細</th>
   </tr>
 <% @posts.each do |post| %>
@@ -24,7 +24,7 @@
     <td><%= post.cpu %></td>
     <td><%= post.comment %></td>
     <td><%= post.total_price %></td>
-    <td><%= link_to '表示する', post_path(post), class: "btn btn-primary" %></td>
+    <td nowrap><%= link_to '表示する', post_path(post), class: "btn btn-primary" %></td>
   </tr>
 
 <% end %>

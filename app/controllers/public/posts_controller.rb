@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-
+before_action :authenticate_customer!
   def new
     @post = Post.new
   end
@@ -44,8 +44,10 @@ class Public::PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
-    post.destroy
-    redirect_to customers_my_page_path
+    if current_customer.id == post.customer_id
+      post.destroy
+    end
+      redirect_to customers_my_page_path
   end
 
   private

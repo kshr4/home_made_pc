@@ -1,7 +1,10 @@
 ja:
   devise:
     failure:
+      unauthenticated: "ログインを正しく実施してください"
       invalid: メールアドレスまたはパスワードが正しくありません。
+      customer:
+       unauthenticated: "ログインを正しく実施してください"
     sessions:
       signed_in: ログインに成功しました。
       signed_out: ログアウトしました。

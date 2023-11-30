@@ -4,11 +4,11 @@
   <tr>
     <th>投稿日</th>
     <th>CPU</th>
-    <th>コメント</th>
+    <th nowrap>コメント</th>
     <th>筐体</th>
-    <th>合計金額</th>
+    <th nowrap>合計金額</th>
     <th>詳細</th>
-    <th>投稿削除</th>
+    <th nowrap>投稿削除</th>
   </tr>
 <% @posts.each do |post| %>
   <tr>
@@ -17,7 +17,7 @@
     <td><%= post.comment %></td>
     <td><%= post.computer_case %></td>
     <td><%= post.total_price %></td>
-    <td><%= link_to '表示する', post_path(post.id), class: "btn btn-success" %></td>
+    <td nowrap><%= link_to '表示する', post_path(post.id), class: "btn btn-success" %></td>
     <td><%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: "【確認】投稿情報を削除してもよろしいですか？" } , class: "btn btn-danger"%></td>
   </tr>
 

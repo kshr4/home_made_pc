@@ -1,5 +1,5 @@
 class Admin::HomesController < ApplicationController
-
+before_action :authenticate_admin!
   def top
     @chart = Post.group(:cpu_kind).count
     @items = RakutenWebService::Ichiba::Item.search(keyword: "Magnate IM")
