@@ -22,9 +22,6 @@
     自作PCの投稿する時
 
 ​
-## 設計書
-後ほど作成予定
-​
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
